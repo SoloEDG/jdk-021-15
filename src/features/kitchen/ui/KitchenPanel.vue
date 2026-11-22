@@ -25,8 +25,8 @@ defineEmits<{ command: [cmd: Command] }>();
       />
     </div>
     <div class="kitchen-note">
-      <span>◷</span> 牛排 12s · 意面 10s · 沙拉 6s
-      <span class="muted">提前或延迟起锅会降低品质</span>
+      <span>♨ 低火 120℃ · 中火 170℃ · 高火 220℃</span>
+      <span class="muted">锅温有惯性，调档后渐变；熟度与过热损伤共同决定品质，起锅后余温仍会作用</span>
     </div>
   </section>
 </template>

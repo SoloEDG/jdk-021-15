@@ -2,6 +2,7 @@ import { reactive, onUnmounted } from "vue";
 import { createGame } from "../shared/initial";
 import { expire, arrive } from "../features/orders";
 import { closeShift, saveBest, readBest } from "../features/ledger";
+import { tickKitchen, TICK } from "../features/kitchen";
 export function useSession() {
   const game = reactive(createGame(readBest()));
   let last = performance.now(),
@@ -18,6 +19,8 @@ export function useSession() {
         game.duration,
         Math.round((game.time + 0.1) * 10) / 10,
       );
+      // 每 0.1 秒只积分一次：暂停冻结、调档与起锅同帧发生也不会重复计分
+      tickKitchen(game, TICK);
       expire(game);
       if (Math.round(game.time * 10) % 180 === 0) arrive(game);
       if (game.time >= game.duration) {

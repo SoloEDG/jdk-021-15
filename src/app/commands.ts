@@ -1,7 +1,7 @@
 import type { Game, Command } from "../shared/types";
 import { accept, expire } from "../features/orders";
 import { prepare, restock } from "../features/pantry";
-import { cook, lift } from "../features/kitchen";
+import { cook, lift, adjustHeat, adopt } from "../features/kitchen";
 import { plate, discard, deliver } from "../features/service";
 export function dispatch(g: Game, c: Command) {
   if (!g.running || g.ended) {
@@ -27,6 +27,12 @@ export function dispatch(g: Game, c: Command) {
       break;
     case "lift":
       lift(g, c.id);
+      break;
+    case "adjust-heat":
+      adjustHeat(g, c.id, c.level);
+      break;
+    case "adopt-plan":
+      adopt(g, c.id, c.plan);
       break;
     case "plate":
       plate(g, c.id);

@@ -20,8 +20,15 @@ defineEmits<{ command: [cmd: Command] }>();
         <div>
           <b>{{ recipes[d.recipe].name }}</b
           ><small
-            >品质 {{ servingQuality(game, d) }} ·
-            {{ d.stage === "plated" ? "已装盘" : "待装盘" }}</small
+            >上菜品质 {{ servingQuality(game, d) }} ·
+            余温 {{ Math.round(d.temp) }}℃ ·
+            熟度 {{ Math.round(d.doneness * 100) }}%<template v-if="d.damage > 0.02">
+              · 损伤 {{ Math.round(d.damage * 100) }}</template
+            ><br />{{
+              d.stage === "plated"
+                ? "已装盘"
+                : "待装盘 · 离火余温仍在继续作用"
+            }}</small
           >
         </div>
         <button
@@ -53,6 +60,6 @@ defineEmits<{ command: [cmd: Command] }>();
     <button class="serve-button" @click="$emit('command', { type: 'serve' })">
       上菜 <span>↗</span>
     </button>
-    <p class="muted">错配扣10秒耐心 · 起锅15秒后开始失温</p>
+    <p class="muted">起锅后余温继续积熟度与损伤 · 15 秒后开始装盘失温</p>
   </section>
 </template>

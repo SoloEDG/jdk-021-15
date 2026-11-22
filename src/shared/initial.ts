@@ -1,4 +1,20 @@
-import type { Game } from "./types";
+import type { Game, Stove } from "./types";
+import { ROOM_TEMP } from "./catalog";
+export function createStove(id: number, kind: Stove["kind"]): Stove {
+  return {
+    id,
+    kind,
+    portion: null,
+    started: 0,
+    heat: 2,
+    temp: ROOM_TEMP,
+    doneness: 0,
+    damage: 0,
+    sear: 0,
+    plan: [],
+    history: [],
+  };
+}
 export function createGame(best = 0): Game {
   return {
     time: 0,
@@ -36,11 +52,7 @@ export function createGame(best = 0): Game {
     ],
     stock: { beef: 5, noodle: 5, greens: 6 },
     portions: [],
-    stoves: [
-      { id: 1, kind: "pan", portion: null, started: 0 },
-      { id: 2, kind: "pan", portion: null, started: 0 },
-      { id: 3, kind: "pot", portion: null, started: 0 },
-    ],
+    stoves: [createStove(1, "pan"), createStove(2, "pan"), createStove(3, "pot")],
     dishes: [],
     entries: [],
     combo: 0,

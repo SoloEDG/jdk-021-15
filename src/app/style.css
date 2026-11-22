@@ -526,6 +526,276 @@ h2 {
 .kitchen-note > .muted {
   font-size: 8px;
 }
+.status-dot.danger {
+  color: #c15a3c;
+  font-weight: 700;
+}
+.thermo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin: 8px 0 4px;
+  background: #eeede2;
+  border-radius: 6px;
+  padding: 7px 4px;
+}
+.thermo-grid small {
+  display: block;
+  font-size: 8px;
+  color: #93a08a;
+}
+.thermo-grid b {
+  font: 14px Georgia;
+  font-weight: 700;
+  color: #3a5240;
+}
+.thermo-grid b.over {
+  color: #b7833f;
+}
+.thermo-grid b.danger {
+  color: #c15a3c;
+}
+.flame[data-heat="0"] {
+  color: #a9b1a3;
+}
+.flame[data-heat="1"] {
+  color: #7fa068;
+}
+.flame[data-heat="2"] {
+  color: #d39a47;
+}
+.flame[data-heat="3"] {
+  color: #cf6038;
+}
+.trend {
+  width: 100%;
+  height: 86px;
+  margin: 4px 0 2px;
+  background: #fbfaf3;
+  border: 1px solid #e9e7da;
+  border-radius: 5px;
+}
+.trend .grid {
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+.trend .danger-line {
+  stroke: #d77a5c;
+  opacity: 0.7;
+}
+.trend .ideal-line {
+  stroke: #8aa87e;
+  opacity: 0.7;
+}
+.trend .now-line {
+  stroke: #8e9a86;
+  stroke-dasharray: 2 2;
+  opacity: 0.6;
+}
+.trend .line {
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+.trend .hist-temp {
+  stroke: #c9653f;
+}
+.trend .draft-temp {
+  stroke: #c9653f;
+  stroke-dasharray: 4 3;
+  opacity: 0.75;
+}
+.trend .base-temp {
+  stroke: #aab3a4;
+  stroke-dasharray: 2 3;
+  stroke-width: 1.2;
+}
+.trend .done-line {
+  stroke: #5e8a68;
+  stroke-dasharray: 4 3;
+  stroke-width: 1.4;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 7px;
+  color: #94a08b;
+  margin: 0 0 6px;
+}
+.legend i {
+  display: inline-block;
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+.lg-temp {
+  background: #c9653f;
+}
+.lg-draft {
+  background: repeating-linear-gradient(90deg, #c9653f 0 3px, transparent 3px 5px);
+}
+.lg-done {
+  background: #5e8a68;
+}
+.lg-danger {
+  background: #d77a5c;
+}
+.lg-ideal {
+  background: #8aa87e;
+}
+.heat-switch {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin: 6px 0;
+}
+.heat-btn {
+  padding: 6px 2px;
+  font-size: 9px;
+  background: #e7e6da;
+  color: #6a7766;
+  border: 1px solid #d9d8cb;
+}
+.heat-btn.active {
+  color: #fff;
+  border-color: transparent;
+  font-weight: 700;
+}
+.plan-queue {
+  font-size: 8px;
+  color: #8a977f;
+  background: #eef2e6;
+  border-radius: 5px;
+  padding: 5px 6px;
+  margin-bottom: 6px;
+  text-align: left;
+}
+.plan-queue em {
+  font-style: normal;
+  display: inline-block;
+  margin: 2px 4px 0 0;
+  background: #fffdf4;
+  border: 1px solid #d7e0cc;
+  border-radius: 10px;
+  padding: 1px 6px;
+}
+.stove-actions {
+  display: flex;
+  gap: 5px;
+}
+.stove-actions .tiny {
+  flex: 0 0 auto;
+}
+.stove-actions .warm {
+  flex: 1;
+}
+.plan-editor {
+  margin-top: 8px;
+  border-top: 1px dashed #d4d8c9;
+  padding-top: 8px;
+  text-align: left;
+}
+.editor-title {
+  font-size: 8px;
+  color: #8a977f;
+  margin: 0 0 6px;
+}
+.plan-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 5px;
+}
+.step-time {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 0 0 78px;
+}
+.step-time b {
+  font: 10px Georgia;
+  font-weight: 700;
+  min-width: 34px;
+  text-align: center;
+}
+.step-btn {
+  padding: 2px 6px;
+  font-size: 10px;
+  background: #e7e6da;
+  color: #5d6b58;
+  line-height: 1;
+}
+.step-levels {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+}
+.mini-heat {
+  flex: 1;
+  padding: 4px 1px;
+  font-size: 8px;
+  background: #e7e6da;
+  color: #6a7766;
+}
+.mini-heat.active {
+  color: #fff;
+  font-weight: 700;
+}
+.step-del {
+  background: transparent;
+  color: #bc997a;
+  font-size: 14px;
+  padding: 0 3px;
+}
+.editor-buttons {
+  display: flex;
+  gap: 6px;
+  margin: 6px 0;
+}
+.editor-buttons button {
+  flex: 1;
+}
+.preview-box {
+  background: #f2f1e6;
+  border: 1px solid #e0e2d3;
+  border-radius: 6px;
+  padding: 7px 8px;
+}
+.preview-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 9px;
+  color: #64725e;
+}
+.preview-row + .preview-row {
+  margin-top: 4px;
+}
+.preview-row b {
+  font: 15px Georgia;
+  color: #315a42;
+}
+.preview-row.base b {
+  color: #8b9683;
+}
+.preview-row small {
+  font-size: 7px;
+  color: #98a28e;
+  margin-left: auto;
+  text-align: right;
+}
+.preview-note {
+  font-size: 7px;
+  color: #a0a895;
+  line-height: 1.6;
+  margin: 6px 0 0;
+}
+.dish-row small {
+  line-height: 1.7;
+}
 .pill {
   font-size: 9px;
   background: #edf0e5;
